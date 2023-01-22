@@ -60,3 +60,16 @@ for k, v in pairs(user) do
     print(k, v)
 end
 ```
+
+![alt-text](./asset/lua_load.png)
+![alt-text](./asset/lua_params.png)
+
+### Redis in Lua
+
+- all Redis key must be provided to the script as `KEYS` array
+- cannot dynamically generate key (must be known in advance)
+- the first param marks the length of the `KEYS` array
+- difficult to debug and test
+- minimize number of roundtrips to Redis
+
+![alt-text](./asset/lua_redis.png)
