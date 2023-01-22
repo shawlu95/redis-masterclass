@@ -71,6 +71,7 @@ How to avoid inconsistent write (e.g. two voters upvote an item at the same time
 - Use `:` to separate entity: `item:18`, `users:45`
 - Use `#` before unique ID: `item#18`, `users#45:posts#16`
 - use `#` before url: `pagecache#/about`, `pagecache#/contact`
+- if id is in key, don't store id in hash
 
 ---
 
