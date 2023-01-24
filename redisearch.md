@@ -14,6 +14,9 @@
 FT._LIST;
 ```
 
+- Some fields can be sortable: `name`, `endingAt`, `views`, `likes`, `price`, `bids`
+- Some fields are not sortable: `description`, `ownerId`
+
 ---
 
 ### `FT.SEARCH` run query
