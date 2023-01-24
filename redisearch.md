@@ -105,6 +105,8 @@ FT.SEARCH ids:cars '@name:(fa*)'
 - search terms are scored by tf-idf
 - terms can be assigned weights
 - fields can be assigned weights (higher weight on title, lower in description)
+- use `FT.EXPLAINCLI` to understand query in boolean algebra, without executing the query
+  = use `FT.PROFILE` to check # retrieved and time spent, after executing the query
 
 ```javascript
 // 5 times weight on name
@@ -115,6 +117,9 @@ FT.SEARCH ids:cars '@name:(fa*)'
 
 // debug query without executing
 FT.EXPLAINCLI idx:i '(@name:(%natural%) => { $weight: 5.0 }) | @description:(%natural%)'
+
+// check query performance
+FT.PROFILE idx:i SEARCH QUERY '%chairs%' LIMIT 0 0
 ```
 
 ---
