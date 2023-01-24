@@ -138,3 +138,7 @@ FT.PROFILE idx:i SEARCH QUERY '%chairs%' LIMIT 0 0
 ---
 
 ### `FT.DROPINDEX` delete index
+
+```javascript
+FT.DROPINDEX idx:i
+```
