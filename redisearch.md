@@ -7,6 +7,12 @@
 
 - create an index on all key with specific pattern (collection) e.g. `item#`
 - index field such as color, year, price
+- when app first connect to index, get a list of index that already exist, create if not exist
+
+```javascript
+// get all existing indices
+FT._LIST;
+```
 
 ---
 
@@ -92,6 +98,23 @@ FT.SEARCH ids:cars '@name:(%%%ttt%%%)'
 // all name starting with fa
 FT.SEARCH ids:cars '@name:(fa*)'
 
+```
+
+#### Weighted Search
+
+- search terms are scored by tf-idf
+- terms can be assigned weights
+- fields can be assigned weights (higher weight on title, lower in description)
+
+```javascript
+// 5 times weight on name
+@name:(chair)=>{$weight:5.0} @description:(chair)
+
+// retrieve either match in name OR description
+(@name:(chair)=>{$weight:5.0}) | (@description:(chair))
+
+// debug query without executing
+FT.EXPLAINCLI idx:i '(@name:(%natural%) => { $weight: 5.0 }) | @description:(%natural%)'
 ```
 
 ---
